@@ -10,7 +10,7 @@ using System.Xml.Linq;
 //  Program: CChavezP2
 //  Programed by: Colby Chavez
 //  Email: CChavez572@cnm.edu
-//  Program goal: Convert the idela gas calulator from program 1 into a class pper the spec
+//  Program goal: Convert the ideal gas calulator from program 1 into a class per the spec.
 namespace CChavezP2
 {
     internal class Program
@@ -22,7 +22,7 @@ namespace CChavezP2
         //  GetMolecularWeightFromName, DisplayPresure, PaToPSI.
         static void DisplayHeader()
         {
-            Console.WriteLine(".NET I/C SHARP (U01) Class Header\nProgramed by: Colby Chavez\nEmail:cchavez572@cnm.edu\nProgram goal: The program will use the Ideal Gas Equation to will calculate the pressure\nexerted by a gas in a container. All from inputs selected by the user.\nExciting right?\n\nFirst, here is a list of all the gasses aviable for you to calulate!\n\n");
+            Console.WriteLine(".NET I/C SHARP (U01) Class Header\nProgramed by: Colby Chavez\nEmail:cchavez572@cnm.edu\nProgram goal: the ideal gas calulator from program 1 into a class per the spec!\n\n");
         }
         static void GetMolecularWeights(ref string[] gasNames, ref double[] molecularWeights, out int count)
         {
@@ -184,7 +184,7 @@ namespace CChavezP2
             //  Ask the user if they want to do another.
             } while (DoAnother());
             //  Display a good bye message when they are done.
-            Console.WriteLine($"\nThanks for using CChavezP2 for your gas calulation needs, with class.\n");
+            Console.WriteLine($"\nThanks for using CChavezP2 for your gas calulation needs, but with class.\n");
         }
 
     }
