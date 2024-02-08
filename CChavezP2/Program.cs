@@ -110,7 +110,7 @@ namespace CChavezP2
         // I also brought over DoAnother code you showed us in the properies demo.
         public static bool DoAnother()
         {
-            Console.WriteLine("Do you want to enter another student? (y/n): ");
+            Console.WriteLine("Do you want to run another ideal gas calulation? (y/n): ");
             string? answer = Console.ReadLine();
             if (string.IsNullOrEmpty(answer)) { return false; }
             return answer.ToLower()[0] == 'y';
@@ -146,6 +146,10 @@ namespace CChavezP2
                 //If it is found:
                 else
                 {
+                    try
+                    {
+
+                    
                     //  Instantiate an IdealGas object(something like IdealGas gas = new IdealGas();)
                     IdealGas gas = new IdealGas();
                     //  Ask the user for the volume of gas in cubic meters, mass of the gas in grams
@@ -153,6 +157,7 @@ namespace CChavezP2
                     //  Use the IdealGas’ SetMolecularWeight, SetVolume, SetMass and SetTemperature
                     //  methods to set the values receive from the user into the gas.The class will
                     //  automatically calculate pressure.
+                    gas.SetMolecularWeight(GetMolecularWeightFromName(gasName, gasNames, molecularWeights, out countGases));
                     string inputBuffer;
                     Console.WriteLine($"\nWhat is the volume of {gasName} in cubic meters?\n");
                     inputBuffer = Console.ReadLine();
@@ -161,11 +166,20 @@ namespace CChavezP2
                     inputBuffer = Console.ReadLine();
                     gas.SetMass(double.Parse(inputBuffer));
                     Console.WriteLine($"\nWhat is the tempeture of the {gasName} in celcius?\n");
-                    inputBuffer= Console.ReadLine();
+                    inputBuffer = Console.ReadLine();
                     gas.SetTemp(double.Parse(inputBuffer));
                     //  Use the IdealGas GetPressure method to pass the pressure in pascals to the
                     //  DisplayPressure method to display the pressure in Pascals and Degrees Celcius.
-                    DisplayPresure(gas.GetPresure);
+                    DisplayPresure(gas.GetPresure());
+                    }
+                    catch (System.FormatException exc)
+                    {
+                        Console.WriteLine("Error: A string eas input instead of a number");
+                    }
+                    catch (System.OverflowException exc)
+                    {
+                        Console.WriteLine("Error:The number you entered was too large");
+                    }
                 }
             //  Ask the user if they want to do another.
             } while (DoAnother());
